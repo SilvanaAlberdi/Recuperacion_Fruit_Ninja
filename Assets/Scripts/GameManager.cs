@@ -11,7 +11,20 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI scoreText;
 
-    private int score;
+    private int _score;
+
+    private int score
+    {
+        set
+        {
+            _score = Mathf.Clamp(value, 0, 99999);
+        }
+
+        get
+        {
+            return _score;
+        }
+    }
     
     void Start()
     {
