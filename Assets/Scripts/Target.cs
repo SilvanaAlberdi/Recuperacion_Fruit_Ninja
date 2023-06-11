@@ -11,6 +11,8 @@ public class Target : MonoBehaviour
     private float xRange = 4;
     private float ySpawnPos = -6;
 
+    private GameManager gameManager;
+
 
 
     void Start()
@@ -19,6 +21,8 @@ public class Target : MonoBehaviour
         _rigidbody.AddForce(RandomForce(), ForceMode.Impulse);
         _rigidbody.AddTorque(RandomTorque(), RandomTorque(), RandomTorque(), ForceMode.Impulse);
         transform.position = RandomSpawnPos();
+
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     private Vector3 RandomForce()
@@ -39,6 +43,7 @@ public class Target : MonoBehaviour
     private void OnMouseDown()
     {
         Destroy(gameObject);
+        gameManager.UpdateScore(5);
     }
 
     private void OnTriggerEnter(Collider other)
