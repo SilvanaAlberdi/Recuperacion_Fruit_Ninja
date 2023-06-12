@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
             return _score;
         }
     }
+
+    public TextMeshProUGUI gameOverText;
     
     void Start()
     {
@@ -48,5 +50,10 @@ public class GameManager : MonoBehaviour
     {
         score += scoreToAdd;
         scoreText.text = "Puntuación: \n" + score;
+    }
+
+    public void GameOver()
+    {
+        gameOverText.gameObject.SetActive(true);
     }
 }

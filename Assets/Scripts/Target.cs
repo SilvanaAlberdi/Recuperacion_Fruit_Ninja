@@ -48,6 +48,13 @@ public class Target : MonoBehaviour
         Destroy(gameObject);
         Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
         gameManager.UpdateScore(pointValue);
+        
+        /*
+        if (gameObject.CompareTag("Bad"))
+        {
+            gameManager.GameOver();
+        }
+        */
     }
 
     private void OnTriggerEnter(Collider other)
@@ -56,9 +63,9 @@ public class Target : MonoBehaviour
         {
             Destroy(gameObject);
 
-            if (pointValue > 0)
+            if (gameObject.CompareTag("Good"))
             {
-                gameManager.UpdateScore(-5);
+                gameManager.GameOver();
             }
         }
     }
