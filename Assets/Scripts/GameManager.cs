@@ -34,10 +34,20 @@ public class GameManager : MonoBehaviour
     }
 
     public TextMeshProUGUI gameOverText;
-    
-    void Start()
+
+    public TextMeshProUGUI titleText;
+    public Button easyButton;
+    public Button mediumButton;
+    public Button hardButton;
+
+    public void StartGame()
     {
         gameState = GameState.inGame;
+
+        titleText.gameObject.SetActive(false);
+        easyButton.gameObject.SetActive(false);
+        mediumButton.gameObject.SetActive(false);
+        hardButton.gameObject.SetActive(false);
 
         StartCoroutine(SpawnTarget());
 
